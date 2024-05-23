@@ -1,18 +1,17 @@
-// Import the functions you need from the SDKs you need
+// src/firebase.js
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getAnalytics } from 'firebase/analytics';
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Your web app's Firebase configuration using environment variables
 const firebaseConfig = {
-  apiKey: "AIzaSyAphDnVr7NPMChp9VKgpsINdrTr7yDEJ8A",
-  authDomain: "nuzlocketracker-81c43.firebaseapp.com",
-  projectId: "nuzlocketracker-81c43",
-  storageBucket: "nuzlocketracker-81c43.appspot.com",
-  messagingSenderId: "379321578248",
-  appId: "1:379321578248:web:ff27515946dc2ed4e832bd",
-  measurementId: "G-GQM8VZBR3V"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
