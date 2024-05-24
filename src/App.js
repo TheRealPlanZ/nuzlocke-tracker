@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Dashboard from './components/Dashboard';
 import Encounters from './components/Encounters';
+import GymFights from './components/GymFights';
 import ProtectedRoute from './components/ProtectedRoute';
 import { auth } from './firebase';
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <ProtectedRoute path="/" element={<Dashboard />} />
           <ProtectedRoute path="/encounters" element={<Encounters />} />
+          <ProtectedRoute path="/gymfights" element={<GymFights />} />
           <Route path="*" element={<Navigate to={user ? "/" : "/login"} />} />
         </Routes>
       </div>
