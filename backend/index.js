@@ -21,9 +21,11 @@ connection.once('open', () => {
 
 const encounterRouter = require('./routes/encounters');
 const gymFightRouter = require('./routes/gymfights');
+const teamRouter = require('./routes/teams');
 
 app.use('/encounters', encounterRouter);
 app.use('/gymfights', gymFightRouter);
+app.use('/teams', teamRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
