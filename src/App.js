@@ -7,6 +7,9 @@ import Dashboard from './components/Dashboard';
 import Encounters from './components/Encounters';
 import GymFights from './components/GymFights';
 import Teams from './components/Teams';
+import DamageCalculator from './components/DamageCalculator';
+import TeamAnalysis from './components/TeamAnalysis';
+import BattleHistory from './components/BattleHistory';
 import ProtectedRoute from './components/ProtectedRoute';
 import { auth } from './firebase';
 
@@ -27,10 +30,13 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <ProtectedRoute path="/" element={<Dashboard />} />
-          <ProtectedRoute path="/encounters" element={<Encounters />} />
-          <ProtectedRoute path="/gymfights" element={<GymFights />} />
-          <ProtectedRoute path="/teams" element={<Teams />} />
+          <Route path="/" element={user ? <Dashboard /> : <Navigate to="/login" />} />
+          <Route path="/encounters" element={user ? <Encounters /> : <Navigate to="/login" />} />
+          <Route path="/gymfights" element={user ? <GymFights /> : <Navigate to="/login" />} />
+          <Route path="/teams" element={user ? <Teams /> : <Navigate to="/login" />} />
+          <Route path="/damage-calculator" element={user ? <DamageCalculator /> : <Navigate to="/login" />} />
+          <Route path="/team-analysis" element={user ? <TeamAnalysis /> : <Navigate to="/login" />} />
+          <Route path="/battle-history" element={user ? <BattleHistory /> : <Navigate to="/login" />} />
           <Route path="*" element={<Navigate to={user ? "/" : "/login"} />} />
         </Routes>
       </div>
