@@ -1,17 +1,18 @@
 // src/components/Login.js
 import React, { useState } from 'react';
-import { auth } from '../firebase';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const auth = getAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    auth.signInWithEmailAndPassword(email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         navigate('/');
       })
