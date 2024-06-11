@@ -14,7 +14,7 @@ const Login = () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        navigate('/');
+        navigate('/game-selection');  // Redirect to game selection page
       })
       .catch((error) => {
         console.error('Error signing in: ', error);

@@ -11,7 +11,8 @@ import DamageCalculator from './components/DamageCalculator';
 import TeamAnalysis from './components/TeamAnalysis';
 import BattleHistory from './components/BattleHistory';
 import LandingPage from './components/LandingPage';
-import ProtectedRoute from './components/ProtectedRoute';
+import GameSelection from './components/GameSelection';
+// import ProtectedRoute from './components/ProtectedRoute'; // Remove this line
 import { auth } from './firebase';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/" element={<LandingPage />} />
           <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/login" />} />
+          <Route path="/game-selection" element={user ? <GameSelection /> : <Navigate to="/login" />} />
           <Route path="/encounters" element={user ? <Encounters /> : <Navigate to="/login" />} />
           <Route path="/gymfights" element={user ? <GymFights /> : <Navigate to="/login" />} />
           <Route path="/teams" element={user ? <Teams /> : <Navigate to="/login" />} />

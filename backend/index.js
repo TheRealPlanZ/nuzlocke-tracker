@@ -22,10 +22,14 @@ connection.once('open', () => {
 const encounterRouter = require('./routes/encounters');
 const gymFightRouter = require('./routes/gymfights');
 const teamRouter = require('./routes/teams');
+const battleHistoryRouter = require('./routes/battlehistories');
+const gameRouter = require('./routes/games');
 
 app.use('/encounters', encounterRouter);
 app.use('/gymfights', gymFightRouter);
 app.use('/teams', teamRouter);
+app.use('/battlehistories', battleHistoryRouter);
+app.use('/games', gameRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
