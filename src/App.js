@@ -12,7 +12,7 @@ import TeamAnalysis from './components/TeamAnalysis';
 import BattleHistory from './components/BattleHistory';
 import LandingPage from './components/LandingPage';
 import GameSelection from './components/GameSelection';
-// import ProtectedRoute from './components/ProtectedRoute'; // Remove this line
+import Layout from './components/Layout';
 import { auth } from './firebase';
 
 function App() {
@@ -33,14 +33,14 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/" element={<LandingPage />} />
-          <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/login" />} />
-          <Route path="/game-selection" element={user ? <GameSelection /> : <Navigate to="/login" />} />
-          <Route path="/encounters" element={user ? <Encounters /> : <Navigate to="/login" />} />
-          <Route path="/gymfights" element={user ? <GymFights /> : <Navigate to="/login" />} />
-          <Route path="/teams" element={user ? <Teams /> : <Navigate to="/login" />} />
-          <Route path="/damage-calculator" element={user ? <DamageCalculator /> : <Navigate to="/login" />} />
-          <Route path="/team-analysis" element={user ? <TeamAnalysis /> : <Navigate to="/login" />} />
-          <Route path="/battle-history" element={user ? <BattleHistory /> : <Navigate to="/login" />} />
+          <Route path="/dashboard" element={user ? <Layout><Dashboard /></Layout> : <Navigate to="/login" />} />
+          <Route path="/game-selection" element={user ? <Layout><GameSelection /></Layout> : <Navigate to="/login" />} />
+          <Route path="/encounters" element={user ? <Layout><Encounters /></Layout> : <Navigate to="/login" />} />
+          <Route path="/gymfights" element={user ? <Layout><GymFights /></Layout> : <Navigate to="/login" />} />
+          <Route path="/teams" element={user ? <Layout><Teams /></Layout> : <Navigate to="/login" />} />
+          <Route path="/damage-calculator" element={user ? <Layout><DamageCalculator /></Layout> : <Navigate to="/login" />} />
+          <Route path="/team-analysis" element={user ? <Layout><TeamAnalysis /></Layout> : <Navigate to="/login" />} />
+          <Route path="/battle-history" element={user ? <Layout><BattleHistory /></Layout> : <Navigate to="/login" />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
