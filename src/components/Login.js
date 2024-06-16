@@ -14,7 +14,7 @@ const Login = () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        navigate('/game-selection');  // Redirect to game selection page
+        navigate('/game-selection');
       })
       .catch((error) => {
         console.error('Error signing in: ', error);
@@ -22,18 +22,30 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div className="max-w-md mx-auto mt-10 bg-gray-800 p-6 rounded-lg shadow-lg">
+      <h2 className="text-2xl font-bold mb-6">Login</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email:</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <div className="mb-4">
+          <label className="block text-sm font-bold mb-2">Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="w-full p-2 bg-gray-700 rounded text-white"
+          />
         </div>
-        <div>
-          <label>Password:</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <div className="mb-4">
+          <label className="block text-sm font-bold mb-2">Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="w-full p-2 bg-gray-700 rounded text-white"
+          />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" className="w-full p-2 bg-blue-600 rounded mt-4">Login</button>
       </form>
     </div>
   );
